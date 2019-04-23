@@ -1,1 +1,1 @@
-# k8s-pods
+# Sample kubernetes pod manifests
