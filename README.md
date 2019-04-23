@@ -9,6 +9,7 @@ check the status:
  $ kubectl get pods
 
 delete the running pod:
+
  $ kubectl delete deployments/kuard
 
 
