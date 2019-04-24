@@ -3,7 +3,7 @@ kind: Pod
 metadata:
    name: "pavan-volume"
 spec:
-  volumes:              #Pod persistant volume example
+  volumes:              #Pod persistent volume example
     - name: 'my-volume'
       hostPath: 
         path: "/tmp"
