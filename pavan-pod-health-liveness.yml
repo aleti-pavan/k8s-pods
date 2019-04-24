@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: pavan-health
+  name: pavan-health-liveness
 spec:
   containers:
     - image: gcr.io/kuar-demo/kuard-amd64:1
