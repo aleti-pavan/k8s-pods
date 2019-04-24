@@ -1,17 +1,18 @@
 apiVersion: v1
 kind: Pod
 metadata:
-   name: "pavan-volume"
+   name: "pavan-remote-volume"
 spec:
   volumes:
-    - name: 'my-volume'
-      hostPath: 
-        path: "/tmp"
+    - name: 'my-remote-volume'   #NFS server example
+      nfs:
+        server: my.nfs.server.local
+        path: "/exports"
   containers:
      - name: kuard
        image: gcr.io/kuar-demo/kuard-amd64:1
        volumeMounts:  #you can add same volume in multiple mount paths
-          - name: "my-volume"
+          - name: "my-remote-volume"
             mountPath: "/pavan" #can be anything /data /pavan /yourapp
        ports:
          - containerPort: 8080
