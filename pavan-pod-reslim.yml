@@ -7,10 +7,10 @@ spec:
      - image: gcr.io/kuar-demo/kuard-amd64:1
        name: kaurd
        resources:
-         requests: #requests are minimum resources required
+         requests:          #requests are minimum resources required
            cpu: "500m"
            memory: "128Mi"
-         limits: #limits are capping to resources
+         limits:            #limits are capping to resources
            cpu: "1000m"
            memory: "500Mi"
        ports:
