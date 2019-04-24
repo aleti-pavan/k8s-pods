@@ -12,7 +12,7 @@ spec:
      - name: kuard
        image: gcr.io/kuar-demo/kuard-amd64:1
        volumeMounts:  #you can add same volume in multiple mount paths
-          - name: "my-volume"
+          - name: "my-remote-volume"
             mountPath: "/pavan" #can be anything /data /pavan /yourapp
        ports:
          - containerPort: 8080
