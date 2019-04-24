@@ -4,10 +4,9 @@ metadata:
    name: "pavan-volume"
 spec:
   volumes:
-    - name: 'my-remote-volume'   #NFS server example
-      nfs:
-        server: my.nfs.server.local
-        path: "/exports"
+    - name: 'my-volume'
+      hostPath: 
+        path: "/tmp"
   containers:
      - name: kuard
        image: gcr.io/kuar-demo/kuard-amd64:1
