@@ -4,7 +4,7 @@ metadata:
    name: "pavan-remote-volume"
 spec:
   volumes:
-    - name: 'my-remote-volume'   #NFS server example
+    - name: 'my-remote-volume'   #NFS remote server example
       nfs:
         server: my.nfs.server.local
         path: "/exports"
