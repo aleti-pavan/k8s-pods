@@ -1,0 +1,45 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pavan-pod-all-together
+spec:
+  volumes:                   #Making volume available for containers
+     - name: "volume-example"
+       hostPath:
+         path: "/var/log"
+  containers:
+    - image: gcr.io/kuar-demo/kuard-amd64:1
+      name: kuard
+      volumeMounts:         
+         - name: "volume-example"  #Mounting the volume
+           mountPath: "/mypath"
+         - name: "volume-example" #Mounting same volume with diff path - it's possible
+           mountPath: "/mySecondpath"
+      livenessProbe:        #Health Check livenessProbe
+         httpGet:
+            path: /healthy
+            port: 8080
+         initialDelaySeconds: 5
+         timeoutSeconds: 1
+         periodSeconds: 10
+         failureThreshold: 3
+      readinessProbe:       #Health Check readinessProbe
+         httpGet:
+             path: /ready
+             port: 8080
+         initialDelaySeconds: 20
+         timeoutSeconds: 1
+         periodSeconds: 10
+         failureThreshold: 3
+      resources:           
+         requests:          #Requests - minimum resources required
+            cpu: "500m"
+            memory: "128Mi"
+         limits:            #Requests - max resources can be used
+            cpu: "1000m"
+            memory: "256Mi"
+      ports:
+        - containerPort: 8080
+          name: http
+          protocol: TCP
+
